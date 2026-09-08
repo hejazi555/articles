@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مقالة: حرب بن سعد، وسُليم بن منصور</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #fbf7ef;
+    --bg-soft: #f4eee0;
+    --ink: #2c2416;
+    --ink-soft: #6b6050;
+    --gold: #a06a2b;
+    --gold-soft: #c9a063;
+    --line: #ddceac;
+    --card: #ffffff;
+    --step: 20px;
+  }
+  [data-theme="dark"]{
+    --bg: #17140f;
+    --bg-soft: #1f1b13;
+    --ink: #ece2ce;
+    --ink-soft: #a89a80;
+    --gold: #d3a05a;
+    --gold-soft: #b78a4a;
+    --line: #3a3123;
+    --card: #1c1810;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Cairo", sans-serif;
+    font-size:var(--step);
+    line-height:2;
+    transition:background .35s ease, color .35s ease;
+    overflow-x:hidden;
+  }
+
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    padding:14px 22px;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .controls{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .ctrl-group{
+    display:flex;
+    align-items:center;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  button{
+    font-family:inherit;
+    border:none;
+    background:transparent;
+    color:var(--ink);
+    cursor:pointer;
+    padding:9px 13px;
+    font-size:15px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .ctrl-group button:hover{ background:var(--bg-soft); }
+  .ctrl-group button:not(:last-child){ border-left:1px solid var(--line); }
+  .icon-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0;
+  }
+  .icon-btn:hover{ background:var(--bg-soft); }
+  .icon-btn svg{ width:18px; height:18px; }
+  #fsize{ font-size:14px; color:var(--ink-soft); min-width:34px; text-align:center; padding:0 4px; cursor:default; }
+
+  .sun{ display:none; }
+  [data-theme="dark"] .sun{ display:block; }
+  [data-theme="dark"] .moon{ display:none; }
+
+  .page{
+    max-width:700px;
+    margin:0 auto;
+    padding:8px clamp(16px, 5vw, 24px) 90px;
+    overflow-wrap:break-word;
+  }
+
+  .hero{
+    text-align:center;
+    padding:clamp(32px, 8vw, 52px) 0 clamp(22px, 5vw, 34px);
+    border-bottom:1px solid var(--line);
+    margin-bottom:clamp(28px, 6vw, 40px);
+  }
+  .hero .kicker{
+    font-size:.75em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-family:"Cairo", sans-serif;
+    font-weight:700;
+    font-size:clamp(1.5em, 6vw, 2.2em);
+    margin:0 0 14px;
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .hero .author{
+    font-size:.8em;
+    color:var(--gold);
+  }
+
+  h2.section{
+    font-family:"Cairo", sans-serif;
+    font-weight:700;
+    font-size:clamp(1.15em, 4.5vw, 1.5em);
+    color:var(--gold);
+    text-align:center;
+    margin:clamp(36px, 8vw, 56px) 0 26px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--gold-soft);
+    display:table;
+    margin-inline:auto;
+    padding-inline:6px;
+    max-width:100%;
+  }
+
+  p{
+    margin:0 0 1.15em;
+    text-align:justify;
+    text-justify:inter-word;
+  }
+
+  .divider{
+    text-align:center;
+    color:var(--gold-soft);
+    margin:44px 0;
+    font-size:18px;
+    letter-spacing:14px;
+  }
+
+  .quote{
+    background:var(--bg-soft);
+    border-right:4px solid var(--gold-soft);
+    border-radius:4px;
+    padding:clamp(16px, 4vw, 22px) clamp(16px, 5vw, 26px);
+    margin:clamp(24px, 6vw, 34px) 0;
+    color:var(--ink);
+  }
+  .quote p{
+    margin:0 0 .6em;
+    text-align:center;
+  }
+  .quote p:last-child{ margin-bottom:0; }
+
+  .signature{
+    text-align:right;
+    font-family:"Cairo", sans-serif;
+    font-weight:700;
+    font-size:1.15em;
+    color:var(--gold);
+    margin:clamp(32px, 8vw, 50px) 0 10px;
+  }
+
+  footer{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:.65em;
+    padding:40px 0 10px;
+  }
+
+  @media (max-width:600px){
+    .topbar{ padding:10px 12px; gap:8px; }
+    .ctrl-group button{ padding:10px 14px; font-size:15px; min-width:40px; min-height:40px; }
+    .icon-btn{ width:40px; height:40px; }
+    #fsize{ font-size:13px; min-width:26px; }
+    .divider{ letter-spacing:8px; }
+  }
+
+  @media (max-width:380px){
+    .controls{ gap:6px; }
+    .ctrl-group button{ padding:9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="controls">
+    <div class="ctrl-group">
+      <button id="dec" aria-label="تصغير الخط">-أ</button>
+      <span id="fsize">20</span>
+      <button id="inc" aria-label="تكبير الخط">+أ</button>
+    </div>
+    <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع الليلي والنهاري">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="kicker">مقالة</div>
+    <h1>حرب بن سعد، وسُليم بن منصور</h1>
+    <div class="author">كتبه: أحمد بن خماس الخميسي الحربي</div>
+  </div>
+
+  <p>سعدت خلال الفترة الماضية بإهداء جميل من الأحبة الأعزاء والأصدقاء من أبناء قبيلة سُليم العزيزة بكتاب جميل (بعنوان "ملامح من تاريخ قبيلة سليم في الحجاز") للكاتب زياد الفيان السلمي.</p>
+
+  <p>وهو سرد تاريخي جميل لقبيلة نكن لها كل التقدير والاحترام والاعتزاز بشيوخها وأعيانها وأفرادها وديارها الذين ينتمون لها.</p>
+
+  <p>آثرت أن لا أكتب مقالي هذا إلا بعد أن أطلع عليه، وأعجبت بما احتواه من إرث تاريخي كبير نقدره ونحترمه. كيف لا، ونحن في قبيلة حرب يجمعنا تاريخ عظيم من الجيرة والنسب؟ وقبل هذا، يجمعنا كيان عظيم هو هذا الوطن الشامخ، المملكة العربية السعودية، هذا البنيان الوحدوي العظيم الذي جمع القلوب، وألف الرجال على يد المؤسس الملك عبدالعزيز آل سعود، رحمه الله. وما نعيشه اليوم إلا امتداد لهذه الوحدة الوطنية العظيمة.</p>
+
+  <p>قبيلة سُليم من القبائل التي تفخر قبيلة حرب بالإرث التاريخي الذي يجمعنا بها منذ الأزل، وقد سطر التاريخ عن هذه المجاورة ما يفخر به الجميع. وما وصل إلينا من الأجداد الأولين من قبيلة حرب يجعلنا ندرك هذه الألفة التي نشاهدها اليوم، وما سعى بها الأجداد وثبتت أواصرها الأبناء والأحفاد. وما نقل منها بكل ما يشهد به التاريخ إلا من فخر وشجاعة نفخر بها جميعًا كقبيلة حرب.</p>
+
+  <p>واليوم، تجلت لنا هذه المحبة والتقدير فيما رأيناه من التفاف قبائل هذا الوطن، إلا دلالة على هذا الحب الذي تكنه قبائل هذا الوطن لبعضها البعض. فالحمد لله على ما نعيشه اليوم من هذا التلاحم الرائع والبناء العظيم. حفظ الله قيادتنا، وأدام على وطننا الخير والنماء في ظل خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز، حفظه الله، وولي عهده الأمير محمد بن سلمان، حفظه الله.</p>
+
+  <footer>حرب بن سعد، وسُليم بن منصور</footer>
+
+</div>
+
+<script>
+  const body = document.body;
+
+  function applyTheme(t){
+    if(t === 'dark'){ body.setAttribute('data-theme','dark'); }
+    else { body.removeAttribute('data-theme'); }
+  }
+
+  let theme = localStorage.getItem('taqriz-theme');
+  if(!theme){
+    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  applyTheme(theme);
+
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    theme = (body.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+    applyTheme(theme);
+    localStorage.setItem('taqriz-theme', theme);
+  });
+
+  const fsizeLabel = document.getElementById('fsize');
+  let size = parseInt(localStorage.getItem('taqriz-fsize')) || 20;
+  const MIN = 15, MAX = 30;
+
+  function applySize(){
+    body.style.setProperty('--step', size + 'px');
+    fsizeLabel.textContent = size;
+  }
+  applySize();
+
+  document.getElementById('inc').addEventListener('click', () => {
+    size = Math.min(MAX, size + 1);
+    applySize();
+    localStorage.setItem('taqriz-fsize', size);
+  });
+  document.getElementById('dec').addEventListener('click', () => {
+    size = Math.max(MIN, size - 1);
+    applySize();
+    localStorage.setItem('taqriz-fsize', size);
+  });
+</script>
+
+</body>
+</html>
